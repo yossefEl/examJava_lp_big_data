@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+    <children>
+        <VBox minWidth="100.0" prefHeight="400.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: #f0f0f0;">
+            <children>
+                <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                    </VBox.margin>
+                    <image>
+                        <Image url="@../assets/logo_fst.png" />
+                    </image></ImageView>
+                <HBox prefHeight="30.0" prefWidth="100.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #f8f9fa;" text="Societes">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox layoutX="11.0" layoutY="81.0" prefHeight="30.0" prefWidth="100.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: white;" text="Employes">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox fx:id="vbx" id="vbx"  prefHeight="400.0" prefWidth="520.0"
+              style="-fx-background-color: white;">
+         <children>
+            <VBox fx:id="vBoxContent1" style="-fx-background-color: white;" />
+         </children></VBox>
+    </children>
+</HBox>
