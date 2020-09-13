@@ -9,11 +9,14 @@ import java.io.IOException;
 
 public class MainController {
     @FXML private VBox vBoxContent;
-    @FXML private VBox vbx;
-    public MainController() throws IOException {
-        VBox vBox= FXMLLoader.load(getClass().getResource("../societes/view.fxml"));
+//    @FXML private VBox vbx;
+
+
+    public  void loader() throws Exception{
+        VBox vBox= FXMLLoader.load(MainController.class.getResource("../societes/view.fxml"));
         System.out.println(vBox.getChildren());
-        System.out.println(vbx);
+        System.out.println(vBoxContent);
+
 
 //        vBoxContent.getChildren().clear();
 //        vBoxContent.getChildren().setAll(vBox.getChildren());
