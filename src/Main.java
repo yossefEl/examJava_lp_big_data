@@ -10,18 +10,17 @@ import javafx.stage.Stage;
 import main.MainController;
 
 public class Main extends Application {
-    @FXML public static VBox vBoxContent;
-    MainController mainController;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        mainController=new MainController();
+
         Parent root = FXMLLoader.load(getClass().getResource("main/main_view.fxml"));
 
         primaryStage.setTitle("Gestion societes & employes");
         primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
 
-        mainController.loader();
+
 
 
     }
@@ -29,6 +28,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        System.out.println(vBoxContent);
+
     }
 }
