@@ -7,18 +7,23 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import dbHelpers.*;
 import main.MainController;
 
 public class Main extends Application {
-
+    DatabaseHelper dbh;
     @Override
     public void start(Stage primaryStage) throws Exception{
+        dbh=new DatabaseHelper();
+        dbh.connectMysql();
 
         Parent root = FXMLLoader.load(getClass().getResource("main/main_view.fxml"));
 
         primaryStage.setTitle("Gestion societes & employes");
         primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
+
+
 
 
 
