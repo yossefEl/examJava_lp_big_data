@@ -21,7 +21,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("main/main_view.fxml"));
 
         primaryStage.setTitle("Gestion societes & employes");
-        primaryStage.setScene(new Scene(root, 700, 600));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
 
 

@@ -2,9 +2,11 @@ package employes.controllers;
 
 import dbHelpers.DatabaseHelper;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,9 +15,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Background;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import employes.models.EmployeModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,10 +33,11 @@ public class EmployeController implements Initializable {
     @FXML private TableView<EmployeModel> employesDataTableView;
         @FXML private TableColumn <String,String> employeIDTableCol;
         @FXML private TableColumn <String,String> employeNameTableCol;
-        @FXML private TableColumn <String,String> employeAdrrTableCol;
+        @FXML private TableColumn <String,String> employeSalaireTableCol;
+    @FXML private TableColumn <String,String> employeSocieteTableCol;
             @FXML private TableColumn <String ,Button> employeUpdateTableCol;
     @FXML private TableColumn <String ,Button> employeDeleteTableCol;
-    @FXML private TableColumn <String ,Button> employeBrowseEmployesTableCol;
+
 
 
 
@@ -65,10 +71,13 @@ public class EmployeController implements Initializable {
     public void getAllEmployes() throws SQLException {
 
 
-        System.out.println("okkk************************8");
+
         ResultSet resultSet = null;
         try {
-            resultSet= databaseHelper.getStatement().executeQuery("SELECT * FROM employes");
+            resultSet= databaseHelper.getStatement().executeQuery("" +
+                    "SELECT employes.id, employes.nom_complet,employes.salaire,employes.societe_id,societes.nom\n" +
+                    "FROM employes\n" +
+                    "INNER JOIN societes ON employes.societe_id=societes.id;");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -76,8 +85,9 @@ public class EmployeController implements Initializable {
 
         if(resultSet!=null){
             while(resultSet.next()){
-                System.out.println(resultSet);
-                employes.add(new EmployeModel(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3)));
+                EmployeModel employe=new EmployeModel(resultSet.getInt(1),resultSet.getString(2),resultSet.getDouble(3),resultSet.getInt(4));
+                employe.setSocieteName(resultSet.getString(5));
+                employes.add(employe);
             }
         }
 
@@ -91,10 +101,10 @@ public class EmployeController implements Initializable {
         EmployeModel employe=new EmployeModel();
             employeIDTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeID"));
             employeNameTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeName"));
-            employeAdrrTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeAdrr"));
-            employeUpdateTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(editButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
-            employeDeleteTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(deleteButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
-            employeBrowseEmployesTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(browseButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
+            employeSalaireTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeSalaire"));
+            employeSocieteTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("societeName"));
+            employeUpdateTableCol.setCellValueFactory(new PropertyValueFactory<String ,Button>("updateButton"));
+            employeDeleteTableCol.setCellValueFactory(new PropertyValueFactory<String ,Button>("deleteButton"));
             ObservableList<EmployeModel> list = FXCollections.observableList(employes);
             employesDataTableView.setItems(list);
 
@@ -102,75 +112,8 @@ public class EmployeController implements Initializable {
 
 
 
-    private Button deleteButtonBuilder(PropertyValueFactory<String, String> employeID){
-        System.out.println();
-        Button deleteButton =new Button("Supprimer");
-        deleteButton.setId(String.valueOf(employeID));
-        deleteButton.setOnAction((event) -> {
-            System.out.println(employesDataTableView.getSelectionModel().getSelectedIndex());
 
-            Parent parent= null;
-
-            try {
-                parent = FXMLLoader.load(getClass().getResource("../views/delete_employe_dialog.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Scene scene = new Scene(parent, 414, 140);
-            Stage stage=new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
-            initialize(null,null);
-
-        });
-        return deleteButton;
-    }
-
-    private Button editButtonBuilder(PropertyValueFactory<String, String> employeID){
-        Button editButton =new Button("Mettre a jour");
-        editButton.setOnAction((event) -> {
-            editButton.setId(String.valueOf(employeID));
-            Parent parent= null;
-            try {
-                parent = FXMLLoader.load(getClass().getResource("../views/edit_employe_dialog.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Scene scene = new Scene(parent, 414, 140);
-            Stage stage=new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
-            initialize(null,null);
-
-        });
-        return editButton;
-    }
-    private Button browseButtonBuilder(PropertyValueFactory<String, String> employeID){
-        Button browseButton =new Button("Consulter les employes");
-        browseButton.setId(String.valueOf(employeID));
-        browseButton.setOnAction((event) -> {
-
-            Parent parent= null;
-            try {
-                parent = FXMLLoader.load(getClass().getResource("../views/consulter_employes_dialog.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Scene scene = new Scene(parent, 700, 500);
-            Stage stage=new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
-
-        });
-        return browseButton;
-    }
-
-
-
-    public ArrayList<EmployeModel> searchSocieties(String keyword){
+    public void searchSocieties(String keyword){
         ArrayList<EmployeModel> results =new ArrayList<EmployeModel>();
         employes.forEach((employe)->{
             //to string is a combination of the Class attributes so it is good to use it as a query
@@ -180,13 +123,15 @@ public class EmployeController implements Initializable {
             }
 
         });
-        return results;
+
+        employes.clear();
+        employes.addAll(results);
     }
 
 
     public void showAddEmployeDialog(ActionEvent actionEvent) throws IOException {
         Parent parent= FXMLLoader.load(getClass().getResource("../views/add_employe_dialog.fxml"));
-        Scene scene = new Scene(parent, 414, 140);
+        Scene scene = new Scene(parent, 414, 180);
         Stage stage=new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
@@ -210,5 +155,15 @@ public class EmployeController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void refreshContent(ActionEvent actionEvent) {
+        initialize(null,null);
+    }
+    @FXML
+    TextField searchKeyWord;
+    public void searchSocieties(ActionEvent actionEvent) {
+        searchSocieties(searchKeyWord.getText());
+        fillTable();
     }
 }

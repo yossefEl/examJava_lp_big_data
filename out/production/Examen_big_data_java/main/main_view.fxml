@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
     <children>
         <VBox minWidth="100.0" prefHeight="400.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: #f0f0f0;">
             <children>
@@ -20,7 +18,9 @@
                     </image></ImageView>
                 <HBox prefHeight="30.0" prefWidth="100.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #f1f2f3;" text="Societes">
+                        <Label accessibleRole="BUTTON" onMouseClicked="#loaderOfSociete"
+                               prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: LIGHT_GREY;"
+                               text="Societes">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -32,7 +32,7 @@
                 </HBox>
                 <HBox layoutX="11.0" layoutY="81.0" prefHeight="30.0" prefWidth="100.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: white;" text="Employes">
+                        <Label accessibleRole="BUTTON" onMouseClicked="#loaderOfEmploye" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: white;" text="Employes">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>

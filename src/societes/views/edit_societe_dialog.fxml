@@ -20,7 +20,7 @@
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="259.0" promptText="AIr arabica">
+                        <TextField fx:id="oldSocieteName" prefHeight="30.0" prefWidth="259.0" promptText="AIr arabica">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
@@ -37,7 +37,7 @@
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="259.0" promptText="Casablanca">
+                        <TextField fx:id="oldSocieteAdrr" prefHeight="30.0" prefWidth="259.0" promptText="Casablanca">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
@@ -54,7 +54,7 @@
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </Button>
-                        <Button  layoutX="306.0" layoutY="30.0"
+                        <Button fx:id="updateBtn" onAction="#updateSocieteInfo" layoutX="306.0" layoutY="30.0"
                                 mnemonicParsing="false"
                                 prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #64BB00;"
                                 text="Mettre a jour" textFill="WHITE">

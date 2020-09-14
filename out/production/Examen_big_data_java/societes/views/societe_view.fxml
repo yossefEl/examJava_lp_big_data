@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="societes.controllers.SocieteController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="societes.controllers.SocieteController">
    <children>
       <HBox style="-fx-background-color: white;">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextField prefHeight="26.0" prefWidth="232.0" promptText="Chercher une societe...." style="-fx-background-color: #f8f9fa; -fx-border-color: grey; -fx-border-radius: 4;" />
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #EDA300; -fx-border-width: 0;" text="Chercher" textFill="WHITE">
+            <TextField fx:id="searchKeyWord" prefHeight="26.0" prefWidth="232.0" promptText="Chercher une societe...." style="-fx-background-color: #f8f9fa; -fx-border-color: grey; -fx-border-radius: 4;" />
+            <Button onAction="#searchSocieties" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #EDA300; -fx-border-width: 0;" text="Chercher" textFill="WHITE">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
@@ -24,9 +24,15 @@
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
+            <Line endX="-100.0" endY="25.0" layoutX="439.0" layoutY="11.0" startX="-100.0" stroke="#9f9e9e" />
+            <Button alignment="CENTER" layoutX="344.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshContent" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: blue; -fx-border-width: 0;" text="Rafraicher" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
-      <TableView fx:id="societesDataTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+      <TableView fx:id="societesDataTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="617.0">
         <columns>
           <TableColumn id="row" fx:id="societeIDTableCol" prefWidth="75.0" text="id" />
           <TableColumn fx:id="societeNameTableCol" prefWidth="51.99993896484375" text="Nom" />

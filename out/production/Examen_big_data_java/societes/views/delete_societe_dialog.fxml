@@ -9,19 +9,19 @@
     <children>
         <VBox alignment="CENTER" layoutY="1.0" prefHeight="161.0" prefWidth="414.0">
             <children>
-                  <Label prefHeight="30.0" prefWidth="233.0" text="Etes vous sur supprimer cette societe">
+                  <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" prefHeight="73.0" prefWidth="376.0" text="Etes vous sur supprimer cette societe">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
                   </Label>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0">
                     <children>
-                        <Button fx:id="closeDeleteSocieteBtn" onAction="#closeDeleteSocieteButtonAction" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
+                        <Button fx:id="closeDeleteSocieteBtn" mnemonicParsing="false" onAction="#closeDeleteSocieteButtonAction" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </Button>
-                        <Button  layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
+                        <Button fx:id="deleteSocieteBtn" onAction="#deleteSocieteButtonAction" layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
