@@ -15,7 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         dbh=new DatabaseHelper();
-        dbh.connectMysql();
+//        dbh.getStatement().executeQuery("INSERT INTO societes (nom, adrr) VALUES ('SAHAM','Casa') ");
+
 
         Parent root = FXMLLoader.load(getClass().getResource("main/main_view.fxml"));
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employes.controllers.EmployeController">
+   <children>
+      <HBox style="-fx-background-color: white;">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <TextField prefHeight="26.0" prefWidth="232.0" promptText="Chercher une employe...." style="-fx-background-color: #f8f9fa; -fx-border-color: grey; -fx-border-radius: 4;" />
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #EDA300; -fx-border-width: 0;" text="Chercher" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Line endX="-100.0" endY="25.0" startX="-100.0" stroke="#9f9e9e" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#showAddEmployeDialog" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #64BB00; -fx-border-width: 0;" text="Ajouter une employe" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="employesDataTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+        <columns>
+          <TableColumn id="row" fx:id="societeIDTableCol" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="societeNameTableCol" prefWidth="51.99993896484375" text="Nom" />
+          <TableColumn fx:id="societeAdrrTableCol" prefWidth="96.79998779296875" text="Addresse" />
+          <TableColumn fx:id="societeUpdateTableCol" prefWidth="111.20001220703125" text="Mettre a jour" />
+          <TableColumn fx:id="societeDeleteTableCol" prefWidth="68.0" text="Supprimer" />
+          <TableColumn fx:id="societeBrowseEmployesTableCol" prefWidth="127.19998168945312" text="Consulter employes" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

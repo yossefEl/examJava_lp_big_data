@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="132.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employes.controllers.DeleteEmployeController">
+    <children>
+        <VBox alignment="CENTER" layoutY="1.0" prefHeight="161.0" prefWidth="414.0">
+            <children>
+                  <Label prefHeight="30.0" prefWidth="233.0" text="Etes vous sur supprimer cette employe">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+                  </Label>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="closeDeleteEmployeBtn" onAction="#closeDeleteEmployeButtonAction" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button  layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

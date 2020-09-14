@@ -9,18 +9,19 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="132.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="societes.SocieteController">
+<AnchorPane prefHeight="132.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="employes.controllers.AddEmployeController">
    <children>
       <VBox layoutY="1.0" prefHeight="161.0" prefWidth="414.0">
          <children>
             <HBox prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="106.0" text="Nom de la societe">
+                  <Label prefHeight="30.0" prefWidth="106.0" text="Nom de la employe">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField alignment="CENTER" prefHeight="30.0" prefWidth="259.0">
+                  <TextField fx:id="employeName" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="259.0">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -32,12 +33,12 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="30.0" prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="106.0" text="Adresse de la societe">
+                  <Label prefHeight="30.0" prefWidth="106.0" text="Adresse de la employe">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField alignment="CENTER" prefHeight="30.0" prefWidth="259.0">
+                  <TextField fx:id="employeSalaire" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="259.0">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -49,12 +50,12 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
+                  <Button fx:id="closeAddEmployeDialogButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE" onAction="#closeAddEmployeDialog">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #64BB00;" text="Ajouter" textFill="WHITE">
+                  <Button cancelButton="true" fx:id="addEmployeButton" layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #64BB00;" text="Ajouter" textFill="WHITE" onAction="#addEmploye">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>

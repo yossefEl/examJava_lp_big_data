@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="societes.controllers.BrowseEmployesController">
+   <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" text="Les employes de la societe AirArabia">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Label>
+        <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="id" />
+                <TableColumn prefWidth="51.99993896484375" text="Nom" />
+                <TableColumn prefWidth="96.79998779296875" text="Salaire" />
+            </columns>
+        </TableView>
+   </children>
+</VBox>

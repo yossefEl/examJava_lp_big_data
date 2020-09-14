@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="132.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="societes.SocieteController">
+<AnchorPane prefHeight="132.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="societes.controllers.UpdateSocieteController">
     <children>
         <VBox layoutY="1.0" prefHeight="161.0" prefWidth="414.0">
             <children>
@@ -48,12 +49,15 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
+                        <Button fx:id="closeBtn" onAction="#closeButtonAction" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: grey;" text="Annuler" textFill="WHITE">
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </Button>
-                        <Button layoutX="306.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #64BB00;" text="Mettre a jour" textFill="WHITE">
+                        <Button  layoutX="306.0" layoutY="30.0"
+                                mnemonicParsing="false"
+                                prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #64BB00;"
+                                text="Mettre a jour" textFill="WHITE">
                             <HBox.margin>
                                 <Insets right="20.0" />
                             </HBox.margin>
