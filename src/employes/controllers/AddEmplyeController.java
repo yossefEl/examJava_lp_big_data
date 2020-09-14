@@ -20,9 +20,9 @@ public class AddEmployeController {
     @FXML
     Button addEmployeButton;
     @FXML
-    TextField societeName;
+    TextField employeName;
     @FXML
-    TextField societeAdrr;
+    TextField employeAdrr;
 
 
     public void addEmploye(String name,String adrr) throws SQLException {
@@ -47,8 +47,8 @@ public class AddEmployeController {
     }
 
     public void addEmploye(ActionEvent actionEvent) throws SQLException {
-        String name=societeName.getText();
-        String adrr=societeAdrr.getText();
+        String name=employeName.getText();
+        String adrr=employeAdrr.getText();
         try{
             addEmploye(name,adrr);
         }catch (Exception ex){

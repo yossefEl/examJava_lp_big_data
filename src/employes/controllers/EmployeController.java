@@ -26,12 +26,12 @@ import java.util.ResourceBundle;
 
 public class EmployeController implements Initializable {
     @FXML private TableView<EmployeModel> employesDataTableView;
-        @FXML private TableColumn <String,String> societeIDTableCol;
-        @FXML private TableColumn <String,String> societeNameTableCol;
-        @FXML private TableColumn <String,String> societeAdrrTableCol;
-            @FXML private TableColumn <String ,Button> societeUpdateTableCol;
-    @FXML private TableColumn <String ,Button> societeDeleteTableCol;
-    @FXML private TableColumn <String ,Button> societeBrowseEmployesTableCol;
+        @FXML private TableColumn <String,String> employeIDTableCol;
+        @FXML private TableColumn <String,String> employeNameTableCol;
+        @FXML private TableColumn <String,String> employeAdrrTableCol;
+            @FXML private TableColumn <String ,Button> employeUpdateTableCol;
+    @FXML private TableColumn <String ,Button> employeDeleteTableCol;
+    @FXML private TableColumn <String ,Button> employeBrowseEmployesTableCol;
 
 
 
@@ -89,12 +89,12 @@ public class EmployeController implements Initializable {
     public void fillTable(){
 
         EmployeModel employe=new EmployeModel();
-            societeIDTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("societeID"));
-            societeNameTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("societeName"));
-            societeAdrrTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("societeAdrr"));
-            societeUpdateTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(editButtonBuilder(new PropertyValueFactory<String ,String>("societeID"))));
-            societeDeleteTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(deleteButtonBuilder(new PropertyValueFactory<String ,String>("societeID"))));
-            societeBrowseEmployesTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(browseButtonBuilder(new PropertyValueFactory<String ,String>("societeID"))));
+            employeIDTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeID"));
+            employeNameTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeName"));
+            employeAdrrTableCol.setCellValueFactory(new PropertyValueFactory<String ,String>("employeAdrr"));
+            employeUpdateTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(editButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
+            employeDeleteTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(deleteButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
+            employeBrowseEmployesTableCol.setCellValueFactory(c-> new SimpleObjectProperty<Button>(browseButtonBuilder(new PropertyValueFactory<String ,String>("employeID"))));
             ObservableList<EmployeModel> list = FXCollections.observableList(employes);
             employesDataTableView.setItems(list);
 
@@ -102,17 +102,17 @@ public class EmployeController implements Initializable {
 
 
 
-    private Button deleteButtonBuilder(PropertyValueFactory<String, String> societeID){
+    private Button deleteButtonBuilder(PropertyValueFactory<String, String> employeID){
         System.out.println();
         Button deleteButton =new Button("Supprimer");
-        deleteButton.setId(String.valueOf(societeID));
+        deleteButton.setId(String.valueOf(employeID));
         deleteButton.setOnAction((event) -> {
             System.out.println(employesDataTableView.getSelectionModel().getSelectedIndex());
 
             Parent parent= null;
 
             try {
-                parent = FXMLLoader.load(getClass().getResource("../views/delete_societe_dialog.fxml"));
+                parent = FXMLLoader.load(getClass().getResource("../views/delete_employe_dialog.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -127,13 +127,13 @@ public class EmployeController implements Initializable {
         return deleteButton;
     }
 
-    private Button editButtonBuilder(PropertyValueFactory<String, String> societeID){
+    private Button editButtonBuilder(PropertyValueFactory<String, String> employeID){
         Button editButton =new Button("Mettre a jour");
         editButton.setOnAction((event) -> {
-            editButton.setId(String.valueOf(societeID));
+            editButton.setId(String.valueOf(employeID));
             Parent parent= null;
             try {
-                parent = FXMLLoader.load(getClass().getResource("../views/edit_societe_dialog.fxml"));
+                parent = FXMLLoader.load(getClass().getResource("../views/edit_employe_dialog.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -147,9 +147,9 @@ public class EmployeController implements Initializable {
         });
         return editButton;
     }
-    private Button browseButtonBuilder(PropertyValueFactory<String, String> societeID){
+    private Button browseButtonBuilder(PropertyValueFactory<String, String> employeID){
         Button browseButton =new Button("Consulter les employes");
-        browseButton.setId(String.valueOf(societeID));
+        browseButton.setId(String.valueOf(employeID));
         browseButton.setOnAction((event) -> {
 
             Parent parent= null;
@@ -185,7 +185,7 @@ public class EmployeController implements Initializable {
 
 
     public void showAddEmployeDialog(ActionEvent actionEvent) throws IOException {
-        Parent parent= FXMLLoader.load(getClass().getResource("../views/add_societe_dialog.fxml"));
+        Parent parent= FXMLLoader.load(getClass().getResource("../views/add_employe_dialog.fxml"));
         Scene scene = new Scene(parent, 414, 140);
         Stage stage=new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
